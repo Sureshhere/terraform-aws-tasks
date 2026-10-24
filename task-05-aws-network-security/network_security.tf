@@ -1,5 +1,5 @@
 resource "aws_security_group" "ssh" {
-  name        = "cmtr-nl4ibdbd-ssh-sg"
+  name        = var.ssh_sg_name
   description = "Allow SSH and ICMP from approved IP ranges."
   vpc_id      = var.vpc_id
 
@@ -29,7 +29,7 @@ resource "aws_security_group_rule" "ssh_icmp_ingress" {
 }
 
 resource "aws_security_group" "public_http" {
-  name        = "cmtr-nl4ibdbd-public-http-sg"
+  name        = var.public_http_sg_name
   description = "Allow HTTP and ICMP from approved IP ranges."
   vpc_id      = var.vpc_id
 
@@ -59,7 +59,7 @@ resource "aws_security_group_rule" "public_http_icmp_ingress" {
 }
 
 resource "aws_security_group" "private_http" {
-  name        = "cmtr-nl4ibdbd-private-http-sg"
+  name        = var.private_http_sg_name
   description = "Allow HTTP and ICMP from the public HTTP security group."
   vpc_id      = var.vpc_id
 
