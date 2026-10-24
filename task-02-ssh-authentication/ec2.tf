@@ -33,28 +33,12 @@ data "aws_security_group" "ssh" {
   }
 }
 
-data "aws_ami" "amazon_linux" {
-  most_recent = true
-  owners      = [var.ami_owner]
-
-  filter {
-    name   = "name"
-    values = [var.ami_name_filter]
-  }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
+locals {
+  amazon_linux_ami_id = "ami-0d6e34c14757a048b"
 }
 
 resource "aws_instance" "main" {
-  ami                         = data.aws_ami.amazon_linux.id
+  ami                         = local.amazon_linux_ami_id
   instance_type               = var.instance_type
   key_name                    = aws_key_pair.main.key_name
   subnet_id                   = data.aws_subnet.public.id
