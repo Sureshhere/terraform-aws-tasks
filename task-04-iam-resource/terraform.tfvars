@@ -1,0 +1,7 @@
+aws_region            = "us-east-1"
+iam_group_name        = "cmtr-nl4ibdbd-iam-group"
+iam_policy_name       = "cmtr-nl4ibdbd-iam-policy"
+iam_role_name         = "cmtr-nl4ibdbd-iam-role"
+instance_profile_name = "cmtr-nl4ibdbd-iam-instance-profile"
+bucket_name           = "cmtr-nl4ibdbd-bucket-1792862104"
+project_id            = "cmtr-nl4ibdbd"
