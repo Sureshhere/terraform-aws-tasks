@@ -17,3 +17,13 @@ variable "state_key" {
   description = "S3 key of the remote terraform state"
   type        = string
 }
+
+variable "ami_id" {
+  description = "AMI ID used to launch the EC2 instance."
+  type        = string
+}
+
+variable "instance_type" {
+  description = "EC2 instance type."
+  type        = string
+}
