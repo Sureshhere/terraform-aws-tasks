@@ -3,17 +3,17 @@ data "aws_ami" "amazon_linux" {
   owners      = ["amazon"]
 
   filter {
-    name   = "name"
+    name   = var.ami_filter_name
     values = ["al2023-ami-*-x86_64"]
   }
 
   filter {
-    name   = "architecture"
+    name   = var.ami_filter_architecture
     values = ["x86_64"]
   }
 
   filter {
-    name   = "state"
+    name   = var.ami_filter_state
     values = ["available"]
   }
 }

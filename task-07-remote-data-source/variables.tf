@@ -17,3 +17,18 @@ variable "state_key" {
   description = "S3 key of the remote terraform state"
   type        = string
 }
+
+variable "ami_filter_name" {
+  description = "EC2 AMI name filter attribute"
+  type        = string
+}
+
+variable "ami_filter_architecture" {
+  description = "EC2 AMI architecture filter attribute"
+  type        = string
+}
+
+variable "ami_filter_state" {
+  description = "EC2 AMI state filter attribute"
+  type        = string
+}
