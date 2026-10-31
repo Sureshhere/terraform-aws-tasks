@@ -1,10 +1,26 @@
-data "aws_ssm_parameter" "amazon_linux_2023" {
-  name = var.ami_id
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["al2023-ami-*-x86_64"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "state"
+    values = ["available"]
+  }
 }
 
 resource "aws_instance" "main" {
-  ami           = data.aws_ssm_parameter.amazon_linux_2023.value
-  instance_type = var.instance_type
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = "t2.micro"
 
   subnet_id = data.terraform_remote_state.base_infra.outputs.public_subnet_id
 
