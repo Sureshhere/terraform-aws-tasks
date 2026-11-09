@@ -1,0 +1,6 @@
+aws_region          = "us-east-1"
+project_id          = "cmtr-nl4ibdbd"
+vpc_name            = "cmtr-nl4ibdbd-vpc"
+public_subnet_name  = "cmtr-nl4ibdbd-public-subnet-1"
+security_group_name = "cmtr-nl4ibdbd-sg"
+instance_type       = "t2.micro"
