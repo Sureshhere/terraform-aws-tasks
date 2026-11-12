@@ -38,6 +38,8 @@ resource "aws_launch_template" "main" {
     PRIVATE_IP=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" \
       http://169.254.169.254/latest/meta-data/local-ipv4)
 
+    UUID=$(cat /proc/sys/kernel/random/uuid)
+
     cat > /var/www/html/index.html <<HTML
     <!DOCTYPE html>
     <html>
@@ -46,6 +48,7 @@ resource "aws_launch_template" "main" {
       </head>
       <body>
         <h1>Terraform Modules Application</h1>
+        <p>UUID: $UUID</p>
         <p>Instance ID: $INSTANCE_ID</p>
         <p>Availability Zone: $AZ</p>
         <p>Private IP: $PRIVATE_IP</p>
